@@ -183,16 +183,20 @@ class Vector {
         this.x = x;
         this.y = y;
     }
-    plus(num) {
+    plus(vector) {
         return this.x + num
     }
-    minus(num) {
+    minus(vector) {
         return this.y - num 
+    }
+    getLength(num){
+        // return this.x^2 + this.y^2 = num^2
     }
 }
 
-let vec1 = new Vector (2, 6)
-
+var v1 = new Vector(1, 2)
+var v2 = new Vector(2, 3)
+console.log(v1.plus(v2))
 // Give the Vector prototype two methods, `plus` and `minus`, that take another vector as an argument and
 // returns a new vector that has the sum or difference of the two vectors’ (the one in `this` and the parameter) x and y values.
 
