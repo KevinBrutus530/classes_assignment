@@ -19,13 +19,13 @@ class Person {
 }
 let bob = new Person ("bob", "robert", "bobby");
 let sue = new Person ("sue", "soo", "su");
-console.log(sue.first)
+// console.log(sue.first)
 
 
 // b. Write a method in `Person` called `fullName` that will return a formatted string of an instance's full name. Call this method on both the instances you created in part a.
 
-console.log(bob.fullName())
-console.log(sue.fullName())
+// console.log(bob.fullName())
+// console.log(sue.fullName())
 
 
 
@@ -51,11 +51,11 @@ class Book {
 let books = new Book("Half of a Yellow Sun", "Chimamanda Adichie", 9) 
 let bs = new Book("Trump: The Art of the Deal", "Donald Trump", 1.9)
 
-console.log(books)
+// console.log(books)
 
 // b. Add a method to `Book` called `isGood` that returns `true` if its rating is greater than or equal to 7
 
-console.log(bs.isGood())
+// console.log(bs.isGood())
 
 // ## Question 3
 
@@ -69,7 +69,7 @@ class Dog {
         this.hungry = hungry
     }
     playFetch() {
-        console.log("Roof!")
+        // console.log("Roof!")
         return this.hungry = true, this.mood = "playful"
     }
     feed() {
@@ -89,23 +89,20 @@ class Dog {
 
 
 let zola = new Dog("Zozo", "Pitbull", "Meloncholy", false)
-console.log(zola)
+// console.log(zola)
 
 // b. Add a method called `playFetch`. It should set the dog's `hungry` property to `true`, set its mood property to `playful`, and log "Ruff!"
 
 zola.playFetch()
-console.log(zola)
+// console.log(zola)
 
 // c. Add a method called `feed`. If the dog is hungry, it should set `hungry` to `false` and print "Woof!" If the dog is not hungry, it should log "The dog doesn't look hungry"
 
-// zola.feed()
-// console.log(zola)
-
-console.log(zola.feed())
+// console.log(zola.feed())
 
 // d. Add a method called `toString` that returns a description of the dog:
 
-console.log(zola.toString())
+// console.log(zola.toString())
 
 // ## Question 4
 
@@ -116,7 +113,11 @@ console.log(zola.toString())
 // K = C + 273
 
 // a. Make an object called `freezingPoint` that has three properties: `celsius`, `fahrenheit`, and `kelvin`. Give them all values equal to the freezing point of water.
-
+let freezingPoint = {
+    "celsuis": 0,
+    "fahrenheit": 32,
+    "kelvin": 273
+}
 
 // b. Make a class called `Celsius` that has one property: `celsius`, and two methods `getFahrenheitTemp`, and `getKelvinTemp`.
 
@@ -126,25 +127,76 @@ console.log(zola.toString())
 // outsideTempt.getKelvinTemp() //returns 283.0
 // outsideTempt.getFahrenheitTemp() //returns 50.0
 // ```
-
+class Celsius {
+    constructor(celsius){
+        this.celsius = celsius;
+    }
+    getFahrenheit(){
+        return 1.8 * this.celsius + 32
+    }
+    getKelvinTemp(){
+        return this.celsius + 273
+    }
+    isBelowFreezing(){
+        if(this.celsius < 0){
+            return true
+        } else {
+            return false
+        }
+    }
+}
+let outsideTempt = new Celsius(10.0)
+console.log(outsideTempt.celsius)
+console.log(outsideTempt.getKelvinTemp())
+console.log(outsideTempt.getFahrenheit())
 // c. Give `Celsius` a method called `isBelowFreezing` that returns a `Bool` (true if the temperature is below freezing).
-
+console.log(outsideTempt.isBelowFreezing())
 // ## Question 5
 
 // a. Create a class called `Movie` that has properties for `name`, `year`, `genre`, `cast`, and `description`. Create an instance of your `Movie`
+class Movie {
+    constructor(name, year, genre, cast, description){
+        this.name = name;
+        this.year = year;
+        this.genre = genre;
+        this.cast = cast;
+        this.description = description;
+    }
+    blurb() {
+        return `${this.name} came out in ${this.year}. It was a ${this.description} ${this.genre} movie.`
+    }
+}
 
+let moxie = new Movie("Despicable Me", 2009,"amimation","steve carell","funny")
 // b. Create an method inside `Movie` called `blurb` that returns a formatted string describing the movie.
 
 // Ex: "Borat came out in 2006. It was an odd film starring Sacha Baron Cohen as a man named Borat who was visiting America from Kazakhstan."
-
+console.log(moxie.blurb())
 
 // ## Question 6
 
 // Write a class Vector that represents a vector in two-dimensional space.
 // It takes two number arguments: `x` and `y` parameters, which it should be saved to properties of the same name.
 
+class Vector {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    plus(num) {
+        return this.x + num
+    }
+    minus(num) {
+        return this.y - num 
+    }
+}
+
+let vec1 = new Vector (2, 6)
+
 // Give the Vector prototype two methods, `plus` and `minus`, that take another vector as an argument and
 // returns a new vector that has the sum or difference of the two vectors’ (the one in `this` and the parameter) x and y values.
+
+console.log(vec1.minus(4))
 
 // Add a method `getLength` to the prototype that computes the length of the vector ;
 // that is, the distance of the point (x, y) from the origin (0, 0).(a^2 + b^2 = c^2)
