@@ -1,5 +1,6 @@
 # Class Exercises
 
+
 (1 - 8 are the same as on the previous lab, but creating classes using ES6 syntax instead of constructor functions)
 
 ## Question 1
